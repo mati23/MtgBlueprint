@@ -1,0 +1,12 @@
+﻿.deck-builder-container{
+	display:grid;
+	grid-template-columns: 2fr 1fr;
+	padding:0 5%;
+}
+.card-list-container{
+
+}
+.card-type{
+
+}
+

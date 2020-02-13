@@ -9,6 +9,7 @@ import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizat
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 
 import './custom.css'
+import { DeckBuilder } from './components/DeckBuilder';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -17,7 +18,8 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
+            <Route path='/counter' component={Counter} />
+            <Route path='/deck-builder' component={DeckBuilder} />
         <AuthorizeRoute path='/fetch-data' component={FetchData} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>

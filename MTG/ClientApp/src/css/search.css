@@ -1,0 +1,19 @@
+﻿.field.has-addons{
+	padding: 2em 30%;
+}
+.control{
+	width:100%;
+}
+.control-button {
+	box-sizing: border-box;
+	clear: both;
+	font-size: 1rem;
+	position: relative;
+	text-align: left;	
+}
+.control-button .button{
+	border-radius: 0 4px 4px 0!important;
+}
+.control input{
+	width:100%;
+}

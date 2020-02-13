@@ -38,3 +38,12 @@
 	height:2em;
 	margin: 0 0.5em;
 }
+.buttons-container {
+	width:100%;	
+	display:flex;
+	justify-content:flex-end;
+	padding:1em;
+}
+.buttons-container a{
+	text-decoration:none;
+}
