@@ -1,0 +1,18 @@
+﻿
+.authentication-container {	
+	background: #eee;
+	display: grid !important;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1em;
+	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02)
+}
+.auth-container-title{
+	font-size:3em;
+}
+.login-container{
+	padding:1em;
+
+}
+.register-container {
+	padding: 1em;
+}
