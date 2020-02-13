@@ -30,6 +30,9 @@ namespace MTG
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseMySql(
 					Configuration.GetConnectionString("DefaultConnection")));
+			services.AddDbContext<DataContext>(options =>
+				options.UseMySql(
+					Configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddDefaultIdentity<ApplicationUser>(options => 
 			{ 
@@ -87,7 +90,7 @@ namespace MTG
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller}/{action=Index}/{id?}");
+					pattern: "{controller}/{action}/{id?}");
 				endpoints.MapRazorPages();
 			});
 
