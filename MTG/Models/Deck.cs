@@ -13,5 +13,7 @@ namespace MTG.Models
 		public string Colors { get; set; }
 		[Column("user_id")]
 		public string UserId { get; set; }
+		[Column(TypeName = "json")]
+		public string Cards { get; set; }
 	}
 }

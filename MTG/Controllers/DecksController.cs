@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MTG.Data;
 using MTG.Models;
+using Newtonsoft.Json.Linq;
 
 namespace MTG.Controllers
 {
@@ -35,9 +36,33 @@ namespace MTG.Controllers
         //POST: api/Decks;GetCardById
         [HttpPost]
         [Route("GetDeckById")]
-        public async Task<ActionResult<Deck>> GetDeckById([FromBody] string id)
+        public async Task<ActionResult<Deck>> GetDeckById([FromForm] Deck deck)
         {
-            return await _context.Decks.FindAsync(id);
+            return await _context.Decks.FindAsync(deck.Id);
         }
+        [HttpPost]
+        [Route("CreateNewDeck")]
+        public async Task<ActionResult> CreateNewDeck([FromForm] Deck deck)
+        {
+            if (!DeckExists(deck.Id))
+            {
+                JObject jsonDeck = JObject.Parse(deck.Cards);
+                _context.Decks.Add(deck);
+            }            
+            try
+            {
+                await _context.SaveChangesAsync();
+            }catch(DbUpdateException ex)
+            {
+                throw;
+            }
+            return NoContent();
+        }
+        private bool DeckExists(int id)
+        {
+            return _context.Decks.Any(e => e.Id == id);
+        }
+
     }
+    
 }
