@@ -17,3 +17,43 @@
 .control input{
 	width:100%;
 }
+input[list]{
+	width:100%;
+}
+.list-item{
+	padding:0.1em 1em!important ;
+}
+.card-thumbnail-container{
+	background:#ffd800;
+	display:flex;
+	justify-content:center;
+	padding: 1em;
+}
+.card-thumbnail{	
+	display:flex;
+	flex-direction:column;
+}
+.card-thumbnail img{
+	height:150px;
+}
+.card-image{
+	display:flex;
+	justify-content:center;
+}
+.button {
+	color: white !important;
+	font-weight: bold;
+}
+.quantity{
+	display:flex;
+	align-items:center!important;
+}
+.quantity.buttons .button{
+	margin:0;
+}
+.buttons .button:not(:last-child):not(.is-fullwidth){
+	margin-right:0;
+}
+.quantity div {
+	margin: 1em 0.5em;
+}

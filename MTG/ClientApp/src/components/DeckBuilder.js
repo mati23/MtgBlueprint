@@ -4,8 +4,26 @@ import '../css/home.css'
 import '../css/deckbuilder.css'
 import { Search } from './Search';
 import { Redirect } from 'react-router-dom';
+import { Doughnut } from 'react-chartjs-2';
+
 
 export class DeckBuilder extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            }
+        }
+
+    }
     render() {
         return (
             <div>
@@ -75,8 +93,11 @@ export class DeckBuilder extends Component {
                         </div>
 
                     </div>
+                    <div >
+                        <Doughnut data={this.state.data}/>
+                    </div>
                 </div>
-
+                
             </div>
         );
     }
