@@ -53,23 +53,23 @@ export class DeckBuilder extends Component {
                         </div>
                         <div className="tile is-vertical is-parent  is-4">
                             <div className="tile is-child">
-                                <article class="tile is-child notification is-primary">
-                                    <p class="title">Vertical...</p>
-                                    <p class="subtitle">Top tile</p>
+                                <article className="tile is-child notification is-primary">
+                                    <p className="title">Vertical...</p>
+                                    <p className="subtitle">Top tile</p>
                                 </article>
                             </div>
                         </div>
                         <div className="tile is-vertical is-parent is-4">
                             <div className="tile is-child">
-                                <article class="tile is-child notification is-primary">
-                                    <p class="title">Vertical...</p>
-                                    <p class="subtitle">Top tile</p>
+                                <article className="tile is-child notification is-primary">
+                                    <p className="title">Vertical...</p>
+                                    <p className="subtitle">Top tile</p>
                                 </article>
                             </div>
                             <div className="tile is-child">
-                                <article class="tile is-child notification is-primary">
-                                    <p class="title">Vertical...</p>
-                                    <p class="subtitle">Top tile</p>
+                                <article className="tile is-child notification is-primary">
+                                    <p className="title">Vertical...</p>
+                                    <p className="subtitle">Top tile</p>
                                 </article>
                             </div>
                         </div>

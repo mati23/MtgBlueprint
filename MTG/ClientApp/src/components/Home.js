@@ -43,7 +43,11 @@ export class Home extends Component {
                       <div className="deck-description">
                           <img src={G} />
                           <img src={B} />
-                          <img src={N} />
+                          <img src={R} />
+                          <img src={G} />
+                          <img src={W} />
+<img src={N} />
+<img src={U} />
                       </div>
                       </div>
                       <div className="decks-container">
