@@ -4,15 +4,20 @@ import axios from 'axios';
 import '../css/bulma.css'
 import '../css/home.css'
 import '../css/search.css'
+import { CardThumbnail } from './CardThumbnail';
 
-const WAIT_INTERVAL = 2000;
+const WAIT_INTERVAL = 500;
+
 
 export class Search extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: '', list: [], cards: [] };
+        this.state = {
+            value: '',
+            list: [],
+            cards: [],
+        };
         this.handleChange = this.handleChange.bind(this);
-
     }
     componentWillMount() {
         this.timer = null;
@@ -22,11 +27,7 @@ export class Search extends Component {
     options = []
 
 
-    renderRow = () => {
-
-        console.log('options', this.state.list);
-
-    }
+    
 
     handleChange = (event) => {
         clearTimeout(this.timer);
@@ -41,16 +42,26 @@ export class Search extends Component {
         this.timer = setTimeout(this.triggerChange, WAIT_INTERVAL);
 
     }
-
-
     searchCard = () => {
         const response = axios.get("https://api.scryfall.com/cards/search?q=".concat(this.state.value)).then(result => {
             let cardsArray = [];            
-            result.data.data.map((element) => cardsArray.push(element));
-            this.setState({ cards: cardsArray });
-            console.log(this.state.cards);
+            result.data.data.map((element) => {
+                element.quantity = 1;
+                cardsArray.push(element)
+            });
+            this.setState({ cards: cardsArray });            
         }).catch(error => console.log(error));
-
+    }
+    addCardToPool = (element) => {
+        if (element.quantity <= 3) {
+            element.quantity += 1;
+        }
+        
+    }
+    removeCardFromPool=(element) => {
+        if (element.quantity >= 1) {
+            element.quantity -= 1;
+        }
     }
 
     render() {
@@ -73,22 +84,12 @@ export class Search extends Component {
                         </a>
                     </div>
                 </div>
-                <div className="card-thumbnail-container">
-                    <div className="card-thumbnail">
-                        <div className="card-image"><img src="https://img.scryfall.com/cards/normal/front/e/c/ec2120ff-a6d4-4192-96c0-33c139155ddf.jpg?1562942454" /></div>
-                        <div className="quantity buttons">
-                            <button class="button is-small is-danger">Rem.</button>
-                            <div><button class="button is-success is-info">Add : 4</button></div>
-                            <button class="button is-small is-info">Add.</button>
-                        </div>
-                    </div>
+                <div className="card-thumbnail-container">                    
                     {this.state.cards.length > 0 ?
                         this.state.cards.map((element, key) =>
-                            <div className="card-thumbnail" key={key}>
-                                <img src={element.image_uris.normal} />                                
-                            </div>
+                            <div key={key}><CardThumbnail props={element} /></div>
                         )
-                        :<div>No Cards</div>}
+                        :<div></div>}
                 </div>
             </div>
         );

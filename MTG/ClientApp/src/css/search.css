@@ -1,5 +1,5 @@
 ﻿.field.has-addons{
-	padding: 2em 30%;
+	padding: 0 30%;
 }
 .control{
 	width:100%;
@@ -23,8 +23,7 @@ input[list]{
 .list-item{
 	padding:0.1em 1em!important ;
 }
-.card-thumbnail-container{
-	background:#ffd800;
+.card-thumbnail-container{	
 	display:flex;
 	justify-content:center;
 	padding: 1em;
@@ -50,6 +49,7 @@ input[list]{
 }
 .quantity.buttons .button{
 	margin:0;
+	font-weight: 400;
 }
 .buttons .button:not(:last-child):not(.is-fullwidth){
 	margin-right:0;
